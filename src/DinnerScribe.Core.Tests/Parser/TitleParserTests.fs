@@ -8,7 +8,10 @@ open NUnit.Framework
 type TitleParserTests () =
     
     [<Test>]
-    [<TestCase("Title: Beef & Broccoli", "Beef & Broccoli")>]
+    [<TestCase("Title: Beef & Broccoli\n", "Beef & Broccoli")>]
+    [<TestCase("Title: Beef & Broccoli\r\n", "Beef & Broccoli")>]
+    [<TestCase("Title: Beef & Broccoli\r\n More Content Here", "Beef & Broccoli")>]
+    [<TestCase("Title: Beef & Broccoli\n More Content Here  Too ", "Beef & Broccoli")>]
     [<TestCase("Title: Mashed Potatoes", "Mashed Potatoes")>]
     member this.ValidInputReturnsValidTitle input expected =
         let result = TitleParser input
