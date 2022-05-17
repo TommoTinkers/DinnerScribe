@@ -32,3 +32,14 @@ type TitleParserTests () =
         | _ -> Assert.Fail ()
          
         
+    [<Test>]
+    [<TestCase("Title:")>]
+    [<TestCase("Title: ")>]
+    [<TestCase("Title:  ")>]
+    [<TestCase("Title:\n")>]
+    [<TestCase("Title:\r\n")>]
+    member this.MissingTitleReturnsError input =
+        let result = TitleParser input
+        match result with
+        | Error _ -> Assert.Pass ()
+        | _ -> Assert.Fail ()
