@@ -6,10 +6,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Parser\HelperParsers.fs" />
         <Compile Include="RecipeModel\Types.fs" />
+        <Compile Include="Parser\HelperParsers.fs" />
         <Compile Include="Parser\TitleParser.fs" />
         <Compile Include="Parser\StepParser.fs" />
+        <Compile Include="Parser\MassParser.fs" />
+        <Compile Include="Parser\IngredientParser.fs" />
       
     </ItemGroup>
 

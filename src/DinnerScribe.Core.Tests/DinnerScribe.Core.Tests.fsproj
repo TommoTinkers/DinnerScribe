@@ -9,6 +9,9 @@
       <Compile Include="Parser\TitleParserTests.fs" />
       <Compile Include="Parser\StepParserTests.fs" />
       <Compile Include="Parser\UnsignedIntParserTests.fs" />
+      <Compile Include="Parser\IngredientParserTests.fs" />
+      <Compile Include="Parser\MassParserTests.fs" />
+      <Compile Include="Parser\MassUnitParserTests.fs" />
     </ItemGroup>
 
     <ItemGroup>
