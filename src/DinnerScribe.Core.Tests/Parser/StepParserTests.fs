@@ -24,6 +24,7 @@ type StepParserTests () =
     [<TestCase("The quick brown fox jumps over the lazy dog")>]
     [<TestCase(" 1. The quick brown fox jumps over the lazy dog")>]
     [<TestCase("1.2 The quick brown fox jumps over the lazy dog")>]
+    [<TestCase("4.The quick brown fox jumps over the lazy dog")>]
     member this.InvalidInputReturnsError input =
         let result = run StepParser input
         match result with

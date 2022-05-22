@@ -6,11 +6,11 @@ open NUnit.Framework
 open FParsec
 
 [<TestFixture>]
-type StepParserTests () =
+type UnsignedIntParserTests () =
     [<Test>]
-    [<TestCase("1.", 1u)>]
-    [<TestCase("34.", 34u)>]
-    [<TestCase("0099.", 99u)>]
+    [<TestCase("1", 1u)>]
+    [<TestCase("34", 34u)>]
+    [<TestCase("0099", 99u)>]
     member this.ValidInputReturnsValidInt input expected =
         let result = run unsignedIntParser input
         match result with
