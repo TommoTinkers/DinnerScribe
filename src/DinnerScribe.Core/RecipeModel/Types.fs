@@ -13,3 +13,7 @@ type Step = { Number: uint; Direction: string }
 type Mass = { Amount : uint; Unit : MassUnit }
 
 type Ingredient = { Mass : Mass; Name : string; }
+
+type ComponentEntry = | Step of Step
+                      | Ingredient of Ingredient
+type Component = { Title: string; Entries: ComponentEntry List }

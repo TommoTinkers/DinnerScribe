@@ -12,6 +12,7 @@
         <Compile Include="Parser\StepParser.fs" />
         <Compile Include="Parser\MassParser.fs" />
         <Compile Include="Parser\IngredientParser.fs" />
+        <Compile Include="Parser\ComponentEntryParser.fs" />
       
     </ItemGroup>
 
