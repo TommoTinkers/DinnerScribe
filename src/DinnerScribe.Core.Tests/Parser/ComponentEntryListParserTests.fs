@@ -19,6 +19,8 @@ type ComponentEntryListParserTests () =
     [<Test>]
     [<TestCase("\t1. Stand upright\n\n\t+ 300g Chicken Thigh", 2)>]
     [<TestCase("\n\t1. Stand upright\n\n\t+ 300g Chicken Thigh", 2)>]
+    [<TestCase("\n\t1. Stand upright\n  \n\t+ 300g Chicken Thigh", 2)>]
+    [<TestCase("\n\t1. Stand upright\n\t\n\t+ 300g Chicken Thigh", 2)>]
     
     member this.GivenManyComponentsWithBlankLinesReturnsAList input expectedCount =
         let result = run componentEntryListParser input
