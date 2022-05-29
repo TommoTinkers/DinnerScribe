@@ -12,4 +12,7 @@ let stepComponentEntryParser = stepParser |>> Step
 
 let componentEntryParser = pchar '\t' >>. (stepComponentEntryParser <|> ingredientComponentEntryParser)
 
-let componentEntryListParser = many1 componentEntryParser
+let whiteSpaceWithoutTabs = [ '\n' ; ' ' ] |> List.map pchar |> List.reduce (<|>) |> skipMany
+
+let componentEntryListParser = whiteSpaceWithoutTabs >>. many1 (componentEntryParser .>> whiteSpaceWithoutTabs)
+

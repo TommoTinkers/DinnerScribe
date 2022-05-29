@@ -15,6 +15,15 @@ type ComponentEntryListParserTests () =
         match result with
         | Success (value, _, _) when List.length value = expectedCount -> Assert.Pass ()
         | _ -> Assert.Fail ()
+        
+    [<Test>]
+    [<TestCase("\t1. Stand upright\n\n\t+ 300g Chicken Thigh", 2)>]
+    [<TestCase("\n\t1. Stand upright\n\n\t+ 300g Chicken Thigh", 2)>]
+    member this.GivenManyComponentsWithBlankLinesReturnsAList input expectedCount =
+        let result = run componentEntryListParser input
+        match result with
+        | Success (value, _, _) when List.length value = expectedCount -> Assert.Pass ()
+        | _ -> Assert.Fail ()
 
     [<Test>]
     member this.GivenEmptyStringReturnsFailure () =
