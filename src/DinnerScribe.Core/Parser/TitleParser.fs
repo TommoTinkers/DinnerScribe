@@ -4,5 +4,5 @@ open DinnerScribe.Core.RecipeModel.Types
 open HelperParsers
 
 
-let TitleParser = namedFieldParser "Title" (fun x -> {Title = x})
+let titleParser = namedFieldParser "Title" (fun x -> {Title = x})
 

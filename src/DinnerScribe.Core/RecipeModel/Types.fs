@@ -17,3 +17,5 @@ type Ingredient = { Mass : Mass; Name : string; }
 type ComponentEntry = | Step of Step
                       | Ingredient of Ingredient
 type Component = { Title: string; Entries: ComponentEntry List }
+
+type Recipe = {Title: Title; Components: Component list}

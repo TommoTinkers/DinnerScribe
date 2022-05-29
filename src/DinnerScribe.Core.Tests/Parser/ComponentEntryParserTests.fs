@@ -15,6 +15,7 @@ type ComponentEntryParserTests () =
     [<TestCase("\t1. Stand upright\n")>]
     [<TestCase("\t+ 300g Chicken Thigh\r\n")>]
     [<TestCase("\t+ 300g Chicken Thigh\n")>]
+    [<TestCase(" \t+ 300g Chicken Thigh\n")>]
     member this.ValidInputGivesValidComponentEntry input =
         let result = run componentEntryParser input
         match result with
@@ -32,8 +33,6 @@ type ComponentEntryParserTests () =
     [<TestCase("+ 300g Chicken Thigh")>]
     [<TestCase("+ 300g Chicken Thigh")>]
     [<TestCase("1. Stand upright")>]
-    [<TestCase(" \t1. Stand upright")>]
-    [<TestCase("\r\n\t1. Stand upright")>]
     member this.InvalidInputGivesFailureResult input =
         let result = run componentEntryParser input
         match result with

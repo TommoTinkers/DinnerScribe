@@ -16,7 +16,7 @@ type TitleParserTests () =
     [<TestCase("title: Mashed Potatoes", "Mashed Potatoes")>]
     [<TestCase("tItle: Mashed Potatoes", "Mashed Potatoes")>]
     member this.ValidInputReturnsValidTitle input expected =
-        let result = run TitleParser input
+        let result = run titleParser input
         match result with
         | Success (value, _, _) when value.Title = expected -> Assert.Pass ()
         | _ -> Assert.Fail ()
@@ -26,7 +26,7 @@ type TitleParserTests () =
     [<TestCase("Tytle: Mashed Potatoes")>]
     [<TestCase("Title Mashed Potatoes")>]
     member this.InvalidInputReturnsError input =
-        let result = run TitleParser input
+        let result = run titleParser input
         match result with
         | Failure _ -> Assert.Pass ()
         | _ -> Assert.Fail ()
@@ -38,7 +38,7 @@ type TitleParserTests () =
     [<TestCase("Title:\n")>]
     [<TestCase("Title:\r\n")>]
     member this.MissingTitleReturnsError input =
-        let result = run TitleParser input
+        let result = run titleParser input
         match result with
         | Failure _ -> Assert.Pass ()
         | _ -> Assert.Fail ()
