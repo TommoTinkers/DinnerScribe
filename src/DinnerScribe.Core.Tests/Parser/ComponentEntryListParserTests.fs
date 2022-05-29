@@ -10,7 +10,7 @@ type ComponentEntryListParserTests () =
     [<Test>]
     [<TestCase("\t1. Stand upright\n\t+ 300g Chicken Thigh", 2)>]
     [<TestCase("\t+ 300g Chicken Thigh", 1)>]
-    member this.GivenManyComponentsReturnsAList input expectedCount =
+    member this.GivenManyComponentEntriesReturnsAList input expectedCount =
         let result = run componentEntryListParser input
         match result with
         | Success (value, _, _) when List.length value = expectedCount -> Assert.Pass ()

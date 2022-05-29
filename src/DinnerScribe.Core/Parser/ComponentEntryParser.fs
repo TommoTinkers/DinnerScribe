@@ -6,13 +6,14 @@ open IngredientParser
 open StepParser
 open FParsec
 
-
 let ingredientComponentEntryParser = ingredientParser |>> Ingredient
 let stepComponentEntryParser = stepParser |>> Step
 
 let componentEntryParser = pchar '\t' >>. (stepComponentEntryParser <|> ingredientComponentEntryParser)
 
-let whiteSpaceWithoutTabs = [ '\n' ; ' ' ] |> List.map pchar |> List.reduce (<|>) |> skipMany
+let blankLine = many (pchar ' ' <|> pchar '\t') >>. newline
 
-let componentEntryListParser = whiteSpaceWithoutTabs >>. many1 (componentEntryParser .>> whiteSpaceWithoutTabs)
+let componentEntryListParser = many1 (many (attempt blankLine) >>. componentEntryParser)
+
+
 
