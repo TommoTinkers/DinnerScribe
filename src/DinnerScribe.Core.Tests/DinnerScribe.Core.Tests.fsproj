@@ -14,6 +14,7 @@
       <Compile Include="Parser\MassUnitParserTests.fs" />
       <Compile Include="Parser\ComponentEntryParserTests.fs" />
       <Compile Include="Parser\ComponentEntryListParserTests.fs" />
+      <Compile Include="Parser\ComponentParserTests.fs" />
     </ItemGroup>
 
     <ItemGroup>
