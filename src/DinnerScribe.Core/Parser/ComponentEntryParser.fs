@@ -11,3 +11,5 @@ let ingredientComponentEntryParser = ingredientParser |>> Ingredient
 let stepComponentEntryParser = stepParser |>> Step
 
 let componentEntryParser = pchar '\t' >>. (stepComponentEntryParser <|> ingredientComponentEntryParser)
+
+let componentEntryListParser = many1 componentEntryParser
