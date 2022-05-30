@@ -6,14 +6,25 @@ open NUnit.Framework
 open FParsec
 
 [<TestFixture>]
-type UnsignedIntParserTests () =
+type PositiveIntParserTests () =
     [<Test>]
     [<TestCase("1", 1u)>]
     [<TestCase("34", 34u)>]
-    [<TestCase("0099", 99u)>]
+    
     member this.ValidInputReturnsValidInt input expected =
-        let result = run unsignedIntParser input
+        let result = run positiveIntParser input
         match result with
         | Success (value, _, _) when value = expected -> Assert.Pass ()
+        | _ -> Assert.Fail ()
+        
+    [<Test>]
+    [<TestCase("0")>]
+    [<TestCase("0099")>]
+    [<TestCase("00 99")>]
+    [<TestCase(" 99")>]
+    member this.InvalidInputReturnsError input =
+        let result = run positiveIntParser input
+        match result with
+        | Failure _ -> Assert.Pass ()
         | _ -> Assert.Fail ()
         
