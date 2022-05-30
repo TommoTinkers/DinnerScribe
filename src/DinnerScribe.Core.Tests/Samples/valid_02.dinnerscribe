@@ -1,4 +1,4 @@
-Title: Sausage And Mash
+Title: Mashed Potatoes
 Component: Mashed Potatoes
     + 500g Potatoes
     + 200g Butter
@@ -7,10 +7,5 @@ Component: Mashed Potatoes
     +  1g Salt
     3. Season to taste
 EndComponent 
-
-Component: Sausages
-    + 200g Sausages
-    1. Grill Sausages
-EndComponent
 
 

@@ -9,6 +9,7 @@ open NUnit.Framework
 type ComponentEntryParserTests () =
     
     [<Test>]
+    [<TestCase("+ 300g Chicken Thigh")>]
     [<TestCase("\t+ 300g Chicken Thigh")>]
     [<TestCase("\t1. Stand upright")>]
     [<TestCase("\t1. Stand upright\r\n")>]
@@ -16,6 +17,7 @@ type ComponentEntryParserTests () =
     [<TestCase("\t+ 300g Chicken Thigh\r\n")>]
     [<TestCase("\t+ 300g Chicken Thigh\n")>]
     [<TestCase(" \t+ 300g Chicken Thigh\n")>]
+    [<TestCase("  + 300g Chicken Thigh\n")>]
     member this.ValidInputGivesValidComponentEntry input =
         let result = run componentEntryParser input
         match result with
@@ -30,9 +32,6 @@ type ComponentEntryParserTests () =
     [<TestCase("   ")>]
     [<TestCase("\t  ")>]
     [<TestCase("\t  JIBBERISH")>]
-    [<TestCase("+ 300g Chicken Thigh")>]
-    [<TestCase("+ 300g Chicken Thigh")>]
-    [<TestCase("1. Stand upright")>]
     member this.InvalidInputGivesFailureResult input =
         let result = run componentEntryParser input
         match result with

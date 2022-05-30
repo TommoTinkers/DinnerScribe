@@ -16,6 +16,9 @@
       <Compile Include="Parser\ComponentEntryListParserTests.fs" />
       <Compile Include="Parser\ComponentParserTests.fs" />
       <Compile Include="Parser\RecipeParserTests.fs" />
+      <Content Include="Samples\valid_02.dinnerscribe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="Samples\valid_01.dinnerscribe">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>

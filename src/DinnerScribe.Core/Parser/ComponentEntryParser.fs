@@ -9,11 +9,9 @@ open FParsec
 let ingredientComponentEntryParser = ingredientParser |>> Ingredient
 let stepComponentEntryParser = stepParser |>> Step
 
-let componentEntryParser = spaces1 >>. (stepComponentEntryParser <|> ingredientComponentEntryParser)
+let componentEntryParser = spaces >>. (stepComponentEntryParser <|> ingredientComponentEntryParser)
 
-let blankLine = many (pchar ' ' <|> pchar '\t') >>. newline
-
-let componentEntryListParser = many1 (many (attempt blankLine) >>. componentEntryParser)
+let componentEntryListParser = many1 componentEntryParser
 
 
 
