@@ -10,7 +10,7 @@
         <Compile Include="Parser\HelperParsers.fs" />
         <Compile Include="Parser\TitleParser.fs" />
         <Compile Include="Parser\StepParser.fs" />
-        <Compile Include="Parser\MassParser.fs" />
+        <Compile Include="Parser\AmountParser.fs" />
         <Compile Include="Parser\IngredientParser.fs" />
         <Compile Include="Parser\ComponentEntryParser.fs" />
         <Compile Include="Parser\ComponentParser.fs" />

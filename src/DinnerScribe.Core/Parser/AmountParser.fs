@@ -21,4 +21,12 @@ let massUnitParser:Parser<MassUnit, unit> = massCharParser |>> fun massChar ->
     |> List.find (fun e -> e |> fst = massChar.ToLowerInvariant ())
     |> snd
 
-let massParser = positiveIntParser .>>. massUnitParser |>> fun (amount, unit) -> { Unit = unit ; Amount = amount }
+let massParser = positiveIntParser .>>. massUnitParser |>> fun (amount, unit) -> { Unit = unit ; Amount = amount } 
+
+let amountParserMass = massParser |>> Mass
+
+let quantityParser = positiveIntParser |>> fun q -> {Amount = q}
+
+let amountParserQuantity = quantityParser |>> Quantity
+
+let amountParser = attempt amountParserMass <|> amountParserQuantity

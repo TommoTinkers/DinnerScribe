@@ -12,13 +12,15 @@ type IngredientParserTests () =
     [<TestCase("+ 300g Chicken Thigh", 300u, MassUnit.Grams, "Chicken Thigh")>]
     [<TestCase("+ 2kg All Purpose Flour", 2u, MassUnit.Kilograms, "All Purpose Flour")>]
     [<TestCase("+ 2kg 2kg All Purpose Flour", 2u, MassUnit.Kilograms, "2kg All Purpose Flour")>]
-    member this.GivenValidInputReturnsValidIngredient input expectedMass expectedUnit expectedName =
+    member this.GivenValidInputWithMassReturnsValidIngredient input expectedMass expectedUnit expectedName =
         let result = run ingredientParser input
         match result with
-        | Success(ingredient, _, _) when ingredient.Name = expectedName && ingredient.Mass = { Amount = expectedMass; Unit = expectedUnit } -> Assert.Pass ()
+        | Success(ingredient, _, _) ->
+            match ingredient.Amount with
+            | Mass m  when m.Amount = expectedMass && m.Unit = expectedUnit -> Assert.Pass ()
+            | _ -> Assert.Fail ()
         | _ -> Assert.Fail ()
-        
-                                        
+                                                
     [<Test>]
     [<TestCase("/ 300g Chicken Thigh")>]
     [<TestCase("+5kg Onions")>]

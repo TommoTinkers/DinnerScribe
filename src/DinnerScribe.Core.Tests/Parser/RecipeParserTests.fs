@@ -10,6 +10,7 @@ type RecipeParserTests () =
     [<Test>]
     [<TestCase("Samples/valid_01.dinnerscribe")>]
     [<TestCase("Samples/valid_02.dinnerscribe")>]
+    [<TestCase("Samples/valid_03.dinnerscribe")>]
     member this.GivenValidInputReturnsRecipe filename =
         let contents = File.ReadAllText (filename)
         let result = run recipeParser contents

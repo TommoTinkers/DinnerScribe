@@ -10,9 +10,13 @@ type Title = { Title: string }
 
 type Step = { Number: uint; Direction: string }
 
+type Quantity = {Amount : uint}
 type Mass = { Amount : uint; Unit : MassUnit }
 
-type Ingredient = { Mass : Mass; Name : string; }
+type Amount = | Mass of Mass
+              | Quantity of Quantity
+              
+type Ingredient = { Amount : Amount; Name : string; }
 
 type ComponentEntry = | Step of Step
                       | Ingredient of Ingredient

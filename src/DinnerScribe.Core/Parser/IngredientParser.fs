@@ -8,4 +8,4 @@ open MassParser
 
 let ingredientPrefix = pchar '+'
 
-let ingredientParser = ingredientPrefix >>. spaces1 >>. massParser .>>. spaces1 .>>. AtLeastOneCharAndRestOfTheLine |>> fun (a, b) -> { Mass = fst a; Name = b }
+let ingredientParser = ingredientPrefix >>. spaces1 >>. amountParser .>>. spaces1 .>>. AtLeastOneCharAndRestOfTheLine |>> fun (a, b) -> { Amount = fst a; Name = b }

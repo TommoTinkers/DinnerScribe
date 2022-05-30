@@ -22,6 +22,9 @@
       <Content Include="Samples\valid_01.dinnerscribe">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Samples\valid_03.dinnerscribe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
