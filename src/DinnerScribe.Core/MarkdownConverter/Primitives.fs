@@ -5,6 +5,8 @@ let headerOne = '#'
 
 let titlePrefix = headerOne
 
+let unorderedListPrefix = '-'
+
 let convertTitle (title:Title) = $"{titlePrefix} {title.Title}"
 
 
@@ -14,4 +16,4 @@ let convertAmount amount =
     | Quantity q -> $"{q.Amount}"
 
 
-let convertIngredient ingredient = $"- {convertAmount ingredient.Amount} {ingredient.Name}"
+let convertIngredient ingredient = $"{unorderedListPrefix} {convertAmount ingredient.Amount} {ingredient.Name}"
