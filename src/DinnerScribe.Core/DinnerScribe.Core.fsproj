@@ -15,6 +15,7 @@
         <Compile Include="Parser\ComponentEntryParser.fs" />
         <Compile Include="Parser\ComponentParser.fs" />
         <Compile Include="Parser\RecipeParser.fs" />
+        <Compile Include="MarkdownConverter\Primitives.fs" />
       
     </ItemGroup>
 
