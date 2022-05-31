@@ -15,11 +15,19 @@ let massCharParser = massUnitTable
                      |> List.map fst
                      |> List.map pstringCI
                      |> List.reduce (<|>)
+                     
 
-let massUnitParser:Parser<MassUnit, unit> = massCharParser |>> fun massChar ->
+let massUnitByChar (massChar:string) =
     massUnitTable
     |> List.find (fun e -> e |> fst = massChar.ToLowerInvariant ())
     |> snd
+
+let massCharByUnit (massUnit:MassUnit) =
+    massUnitTable
+    |> List.find (fun e -> e |> snd = massUnit)
+    |> fst
+
+let massUnitParser:Parser<MassUnit, unit> = massCharParser |>> massUnitByChar
 
 let massParser = positiveIntParser .>>. massUnitParser |>> fun (amount, unit) -> { Unit = unit ; Amount = amount } 
 

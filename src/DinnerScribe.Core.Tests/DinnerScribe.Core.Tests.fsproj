@@ -26,6 +26,7 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Compile Include="MarkdownConverter\TitleConverterTests.fs" />
+      <Compile Include="MarkdownConverter\IngredientConverterTests.fs" />
     </ItemGroup>
 
     <ItemGroup>
