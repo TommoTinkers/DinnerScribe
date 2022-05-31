@@ -27,6 +27,7 @@
       </Content>
       <Compile Include="MarkdownConverter\TitleConverterTests.fs" />
       <Compile Include="MarkdownConverter\IngredientConverterTests.fs" />
+      <Compile Include="MarkdownConverter\StepConverterTests.fs" />
     </ItemGroup>
 
     <ItemGroup>

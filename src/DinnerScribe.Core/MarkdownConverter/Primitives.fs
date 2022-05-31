@@ -17,3 +17,5 @@ let convertAmount amount =
 
 
 let convertIngredient ingredient = $"{unorderedListPrefix} {convertAmount ingredient.Amount} {ingredient.Name}"
+
+let convertStep step = $"{step.Number}. {step.Direction}"

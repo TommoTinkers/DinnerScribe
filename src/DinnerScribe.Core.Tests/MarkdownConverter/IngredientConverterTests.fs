@@ -6,12 +6,12 @@ open DinnerScribe.Core.MarkdownConverter.Primitives
 open FParsec
 
 [<TestFixture>]
-type IngredientParserTests () = 
+type IngredientConverterTests () = 
     [<Test>]
     [<TestCase("+ 300g Biscuits", "- 300g Biscuits")>]
     [<TestCase("+ 40kg Cream", "- 40kg Cream")>]
     [<TestCase("+ 3 Sausages", "- 3 Sausages")>]
-    member this.ValidTitleReturnsValidMarkDownHeaderOne input expected =
+    member this.ValidIngredientReturnsValidMarkdown input expected =
         let result = run ingredientParser input
         match result with
         | Failure _ -> Assert.Fail ()
