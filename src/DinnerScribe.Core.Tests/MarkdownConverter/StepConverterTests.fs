@@ -8,8 +8,8 @@ open FParsec
 [<TestFixture>]
 type StepConverterTests () = 
     [<Test>]
-    [<TestCase("1. Crush Biscuits", "1. Crush Biscuits")>]
-    [<TestCase("2. Eat", "2. Eat")>]
+    [<TestCase("1. Crush Biscuits", "1. Crush Biscuits\n")>]
+    [<TestCase("2. Eat", "2. Eat\n")>]
     member this.ValidStepReturnsValidMarkdown input expected =
         let result = run stepParser input
         match result with
