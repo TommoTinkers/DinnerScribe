@@ -2,7 +2,13 @@ module DinnerScribe.Core.MarkdownConverter.Primitives
 open System
 open DinnerScribe.Core.RecipeModel.Types
 open DinnerScribe.Core.Parser.MassParser
+
 let headerOne = '#'
+let headerThree = "###"
+let headerFour = "####"
+let componentEntryPrefix = headerFour
+let componentPrefix = headerThree
+
 
 let titlePrefix = headerOne
 
@@ -67,13 +73,12 @@ let convertComponentEntryList entries =
     entries
     |> createConversionTable
     |> convertConversionTable
-    |> fun (l, r) -> l + r
+    |> fun (l, r) -> $"{componentEntryPrefix} Ingredients\n{l}{componentEntryPrefix} Method\n{r}"
     
-let convertComponent (cmpnent:Component) =
-    cmpnent.Title + "\n" + (convertComponentEntryList cmpnent.Entries)
-    
+let convertComponent (cmpnent:Component) = $"{componentPrefix} {cmpnent.Title}\n{convertComponentEntryList cmpnent.Entries}"
+
 let convertRecipe recipe =
-    let title = recipe.Title.Title
+    let title = convertTitle recipe.Title
     let components = List.map convertComponent recipe.Components |> List.reduce (+)
     title + "\n" + components
     
