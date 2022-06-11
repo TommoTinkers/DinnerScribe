@@ -3,7 +3,6 @@ module DinnerScribe.Core.Tests.MarkdownConverter.StepListConverterTests
 open DinnerScribe.Core.Parser
 open FParsec
 open NUnit.Framework
-open NUnit.Framework.Internal
 
 [<TestFixture>]
 type StepListConverterTests () =
