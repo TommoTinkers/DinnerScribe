@@ -31,6 +31,7 @@
       <Compile Include="MarkdownConverter\ComponentConverterTests.fs" />
       <Compile Include="MarkdownConverter\StepListConverterTests.fs" />
       <Compile Include="MarkdownConverter\IngredientListConverterTests.fs" />
+      <Compile Include="MarkdownConverter\ComponentListConverterTests.fs" />
     </ItemGroup>
 
     <ItemGroup>

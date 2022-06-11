@@ -37,10 +37,33 @@ let splitIngredients ingredients = ingredients |> List.partition ingredientParti
 let sortIngredients ingredients =
     ingredients
     |> splitIngredients
-    |> (fun (masses, quantities) -> (masses |> List.sortByDescending (fun m -> m.Amount), quantities |> List.sortByDescending (fun q -> q.Amount)))
+    |> (fun (masses, quantities) -> (masses |> List.sortBy (fun m -> m.Name), quantities))
+    |> (fun (masses, quantities) -> (masses |> List.sortByDescending (fun m -> m.Amount) , quantities |> List.sortByDescending (fun q -> q.Amount)))
     |> fun (a, b) -> a @ b
     
 let convertIngredientList ingredients = ingredients
                                         |> sortIngredients
                                         |> List.map convertIngredient
-                                        |> List.fold (fun x y -> $"{x}{y}") String.Empty                          
+                                        |> List.fold (fun x y -> $"{x}{y}") String.Empty
+                                        
+                                        
+type ComponentEntryConversionTable =
+     {
+         Ingredients : Ingredient list 
+         Steps : Step list
+     }
+    
+let addComponentEntryToConversionTable table entry =
+    match entry with
+    | Ingredient i -> {table with Ingredients = (i :: table.Ingredients) }
+    | Step s -> {table with Steps = (s :: table.Steps)}
+    
+let createConversionTable entries = entries |> List.fold addComponentEntryToConversionTable {Ingredients = []; Steps = []}
+
+let convertConversionTable table = (convertIngredientList table.Ingredients, convertStepList table.Steps )
+
+let convertComponentEntryList entries =
+    entries
+    |> createConversionTable
+    |> convertConversionTable
+    |> fun (l, r) -> l + r
