@@ -9,4 +9,4 @@ open HelperParsers
 let componentTitleParser = namedFieldParser "Component" id
 let endComponent = pstringCI "EndComponent"
 
-let componentParser = componentTitleParser .>>. componentEntryListParser .>> endComponent |>> fun (title, entryList) -> {Title = title; Entries = entryList}
+let componentParser = componentTitleParser .>>. componentEntryListParser .>> endComponent .>> spaces |>> fun (title, entryList) -> {Title = title; Entries = entryList} 

@@ -25,6 +25,9 @@
       <Content Include="Samples\valid_03.dinnerscribe">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Samples\expected_01.md">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Compile Include="MarkdownConverter\TitleConverterTests.fs" />
       <Compile Include="MarkdownConverter\IngredientConverterTests.fs" />
       <Compile Include="MarkdownConverter\StepConverterTests.fs" />
@@ -32,6 +35,7 @@
       <Compile Include="MarkdownConverter\StepListConverterTests.fs" />
       <Compile Include="MarkdownConverter\IngredientListConverterTests.fs" />
       <Compile Include="MarkdownConverter\ComponentListConverterTests.fs" />
+      <Compile Include="MarkdownConverter\RecipeConverterTests.fs" />
     </ItemGroup>
 
     <ItemGroup>

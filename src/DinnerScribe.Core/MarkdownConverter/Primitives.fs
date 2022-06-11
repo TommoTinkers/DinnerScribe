@@ -8,6 +8,7 @@ let titlePrefix = headerOne
 
 let unorderedListPrefix = '-'
 
+
 let convertTitle (title:Title) = $"{titlePrefix} {title.Title}"
 
 let convertAmount amount =
@@ -67,3 +68,12 @@ let convertComponentEntryList entries =
     |> createConversionTable
     |> convertConversionTable
     |> fun (l, r) -> l + r
+    
+let convertComponent (cmpnent:Component) =
+    cmpnent.Title + "\n" + (convertComponentEntryList cmpnent.Entries)
+    
+let convertRecipe recipe =
+    let title = recipe.Title.Title
+    let components = List.map convertComponent recipe.Components |> List.reduce (+)
+    title + "\n" + components
+    
