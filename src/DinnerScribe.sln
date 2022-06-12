@@ -4,6 +4,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DinnerScribe.Core.Tests", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DinnerScribe.Core", "DinnerScribe.Core\DinnerScribe.Core.fsproj", "{5E0A764E-4277-4A42-A880-88093DAA55AA}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DinnerScribe.CLI", "DinnerScribe.CLI\DinnerScribe.CLI.fsproj", "{D08D41A3-C336-44D7-B296-A441728DC86F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5E0A764E-4277-4A42-A880-88093DAA55AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E0A764E-4277-4A42-A880-88093DAA55AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E0A764E-4277-4A42-A880-88093DAA55AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08D41A3-C336-44D7-B296-A441728DC86F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08D41A3-C336-44D7-B296-A441728DC86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08D41A3-C336-44D7-B296-A441728DC86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08D41A3-C336-44D7-B296-A441728DC86F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

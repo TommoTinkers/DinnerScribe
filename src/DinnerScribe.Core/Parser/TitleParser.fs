@@ -1,5 +1,5 @@
 module DinnerScribe.Core.Parser.TitleParser
-
+open FParsec
 open DinnerScribe.Core.RecipeModel.Types
 open HelperParsers
 
