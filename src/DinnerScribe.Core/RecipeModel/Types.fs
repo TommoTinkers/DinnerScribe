@@ -11,7 +11,7 @@ type Title = { Title: string }
 type Step = { Number: uint; Direction: string }
 
 type Quantity = {Amount : uint}
-type Mass = { Amount : uint; Unit : MassUnit }
+type Mass = { Amount : uint; Unit : MassUnit;  }
 
 type Amount = | Mass of Mass
               | Quantity of Quantity

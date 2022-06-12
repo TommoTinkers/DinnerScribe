@@ -38,14 +38,27 @@ let ingredientPartitionPredicate ingredient =
     | Mass _ -> true
     | Quantity _ -> false
 
-let splitIngredients ingredients = ingredients |> List.partition ingredientPartitionPredicate 
+
+
+let splitIngredients ingredients = ingredients |> List.partition ingredientPartitionPredicate
                                  
+let massInMilligrams amount =
+    match amount with
+    | Quantity _ -> None
+    | Mass m ->
+        match m.Unit with
+        | MassUnit.Milligrams -> Some m.Amount
+        | MassUnit.Centigrams -> Some (m.Amount * 10ul)
+        | MassUnit.Grams -> Some (m.Amount * 1000ul)
+        | MassUnit.Kilograms -> Some (m.Amount * 1000ul * 1000ul)
+        | _ -> None 
+
 
 let sortIngredients ingredients =
     ingredients
     |> splitIngredients
     |> (fun (masses, quantities) -> (masses |> List.sortBy (fun m -> m.Name), quantities))
-    |> (fun (masses, quantities) -> (masses |> List.sortByDescending (fun m -> m.Amount) , quantities |> List.sortByDescending (fun q -> q.Amount)))
+    |> (fun (masses, quantities) -> (masses |> List.sortByDescending (fun m -> massInMilligrams m.Amount) , quantities |> List.sortByDescending (fun q -> q.Amount)))
     |> fun (a, b) -> a @ b
     
 let convertIngredientList ingredients = ingredients
