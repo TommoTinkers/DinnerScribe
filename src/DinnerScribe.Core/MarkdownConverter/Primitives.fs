@@ -86,7 +86,7 @@ let convertComponentEntryList entries =
     entries
     |> createConversionTable
     |> convertConversionTable
-    |> fun (l, r) -> $"{componentEntryPrefix} Ingredients\n{l}{componentEntryPrefix} Method\n{r}"
+    |> fun (l, r) -> $"{componentEntryPrefix} Ingredients\n{l}\n{componentEntryPrefix} Method\n{r}"
     
 let convertComponent (cmpnent:Component) = $"{componentPrefix} {cmpnent.Title}\n{convertComponentEntryList cmpnent.Entries}"
 

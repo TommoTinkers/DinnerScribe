@@ -11,5 +11,6 @@
 ### Sausages
 #### Ingredients
 - 200g Sausages
+
 #### Method
 1. Grill Sausages

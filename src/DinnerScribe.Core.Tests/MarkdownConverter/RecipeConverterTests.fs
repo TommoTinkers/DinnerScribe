@@ -11,8 +11,6 @@ open DinnerScribe.Core.MarkdownConverter.Primitives
 type RecipeParserTests () =
     [<Test>]
     [<TestCase("Samples/valid_01.dinnerscribe", "Samples/expected_01.md")>]
-    //[<TestCase("Samples/valid_02.dinnerscribe", "expected_02.md")>]
-    //[<TestCase("Samples/valid_03.dinnerscribe", "expected_03.md")>]
     member this.GivenValidInputReturnsRecipe filename expectedFileName =
         let contents = File.ReadAllText (filename)
         let expected = (File.ReadAllText (expectedFileName)).ReplaceLineEndings "\n"

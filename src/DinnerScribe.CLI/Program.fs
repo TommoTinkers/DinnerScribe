@@ -3,6 +3,17 @@ open Argu
 open DinnerScribe.Core.Parser
 open FParsec
 open DinnerScribe.Core.MarkdownConverter.Primitives
+type NonThrowingExiter() =
+    interface IExiter with
+        member __.Name = "Exiter" // I don't know what this is used for; I have never seen it appear anywhere
+        member __.Exit (msg, code) =
+            if code = ErrorCode.HelpText then
+                printfn "%s" msg
+                exit 0
+            else
+                printfn "%s" msg // Maybe have code to color the console output red here
+                exit 1
+
 
 type Arguments =
     | [<Mandatory>] [<AltCommandLine("-f")>][<Unique>] Filename of path:string
@@ -22,7 +33,7 @@ let generateOutputFilename f = Path.ChangeExtension (f, ".md")
 [<EntryPoint>]
 let main args =
     
-    let parser = ArgumentParser.Create<Arguments>(programName = "DinnerScribe.CLI.exe")
+    let parser = ArgumentParser.Create<Arguments>(programName = "DinnerScribe.CLI.exe", helpTextMessage = "Help Requested", errorHandler = NonThrowingExiter())
     
     let results = parser.Parse args
     
