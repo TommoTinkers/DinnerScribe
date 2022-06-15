@@ -7,7 +7,7 @@ open NUnit.Framework
 [<TestFixture>]
 type IngredientListConverterTests () =
     [<Test>]
-    [<TestCase("+ 4 eggs\n+ 250g Self raising flour\n+ 250g Caster Sugar\n+ 250g Butter", "- 250g Butter\n- 250g Caster Sugar\n- 250g Self raising flour\n- 4 eggs\n\n")>]
+    [<TestCase("+ 4 eggs\n+ 250g Self raising flour\n+ 250g Caster Sugar\n+ 250g Butter", "- 250g Butter\n- 250g Caster Sugar\n- 250g Self raising flour\n- 4 eggs\n")>]
     member this.GivenValidIngredientsReturnsCorrectMarkdown input expected =
         let parser = many IngredientParser.ingredientParser
         let result = run parser input

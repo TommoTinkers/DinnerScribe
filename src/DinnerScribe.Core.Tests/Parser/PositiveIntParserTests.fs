@@ -22,6 +22,7 @@ type PositiveIntParserTests () =
     [<TestCase("0099")>]
     [<TestCase("00 99")>]
     [<TestCase(" 99")>]
+    [<TestCase("-99")>]
     member this.InvalidInputReturnsError input =
         let result = run positiveIntParser input
         match result with
