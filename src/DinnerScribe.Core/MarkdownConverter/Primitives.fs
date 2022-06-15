@@ -88,7 +88,7 @@ let convertComponentEntryList entries =
     |> convertConversionTable
     |> fun (l, r) -> $"{componentEntryPrefix} Ingredients\n{l}\n{componentEntryPrefix} Method\n{r}"
     
-let convertComponent (cmpnent:Component) = $"{componentPrefix} {cmpnent.Title}\n{convertComponentEntryList cmpnent.Entries}"
+let convertComponent (cmpnent:Component) = $"{componentPrefix} {cmpnent.Title}\n{convertComponentEntryList cmpnent.Entries}\n"
 
 let convertRecipe recipe =
     let title = convertTitle recipe.Title
